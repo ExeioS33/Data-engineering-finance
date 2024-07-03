@@ -25,11 +25,12 @@ class FetchData:
             Exception: If there is an error fetching data from yfinance.
         """
         try:
-            ticker = yf.Ticker(ticker_symbol)
+            ticker = yf.Ticker('AIR.PA')
             data = ticker.history(period="1d", interval="1m")  # adjust the period and interval as needed
             data.index = data.index.tz_localize(None)
-            data['date_modification'] = pd.Timestamp.now()
-            data['date_modification'] = data['date_modification'].tz_localize(None)
+            data = data.reset_index()
+            data = data.rename(columns={"Datetime": "Date"})
+            data['date_modification'] = pd.Timestamp.now().tz_localize(None)
 
             if not data.empty:
                 latest_data = data.iloc[-1:]  # Selects the most recent row
