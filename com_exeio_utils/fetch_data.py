@@ -25,7 +25,7 @@ class FetchData:
             Exception: If there is an error fetching data from yfinance.
         """
         try:
-            ticker = yf.Ticker('AIR.PA')
+            ticker = yf.Ticker(ticker_symbol)
             data = ticker.history(period="1d", interval="1m")  # adjust the period and interval as needed
             data.index = data.index.tz_localize(None)
             data = data.reset_index()
