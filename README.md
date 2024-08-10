@@ -6,14 +6,16 @@ Python
 Postgre
 Docker
 
-## Step one DONE
+## Step zero (data part fetch data)
 
-create backend and retrieve data
+## Step one (updated)
+
+need to add a backend
 
 ## Step two NEXT
 
-add UI with streamlit 
+add UI 
 
 ## Constraints
 
-no high frequency due to yfinance API limitation. Go for 1min refreshness.
+No front end and back end stack, need to learn them
